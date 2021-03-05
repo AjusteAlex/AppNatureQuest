@@ -42,7 +42,6 @@ export default function Course(props) {
                 }
                 }}/>
                 
-                
             })} 
 
             {course.buttonPlants.map(function(buttonPlantsData) {
@@ -61,12 +60,14 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems:'center',
       
+      
     },
     page: {
       flex:1,
       flexDirection:'column',
       justifyContent: 'center',
       alignItems: 'center',
+      
     },
   
   });

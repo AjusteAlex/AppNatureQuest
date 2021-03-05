@@ -33,7 +33,6 @@ export default function Home ({navigation}) {
           </LinearGradient>
         </View>  
       );
-
 }
 
 const styles = StyleSheet.create({
@@ -66,12 +65,9 @@ const styles = StyleSheet.create({
       },
       shadowOpacity: 0.58,
       shadowRadius: 16.00,
-
       elevation: 24,
       
-      
     },
-
     background: {
       flex:1,
       alignItems:'center',

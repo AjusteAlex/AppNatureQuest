@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import { Image } from 'react-native';
 
+
 import axios from 'axios';
 
 export default function Fiche(props) {
@@ -23,36 +24,73 @@ export default function Fiche(props) {
 
 
     return (
-    
-        <View >
-            <Text>{fiche.title}</Text>
-            <Text>{fiche.subtitle}</Text>
-            <Image style={{ 
-                width: 51,
-                height: 51,
-                }} 
-                source={fiche.image1} />
-            {/* <Image style={styles.img} source={{ uri: fiche.image2 }} />
-            <Image style={styles.img} source={{ uri: fiche.image3 }} />
-            <Image style={styles.img} source={{ uri: fiche.image4 }} /> */}
-          </View>
+        <View style={{flex: 1}}>
+            <Text style={styles.title}>{fiche.title}</Text>
+            <View style={styles.text}>
+                <Image style = {styles.icon} source={require('../assets/info.png')} />
+                <Text style={styles.subtitle}>{fiche.subtitle}</Text>
+            </View>
+            <View style={styles.container1}>
+                <Image style={styles.img1} source={{ uri: 'http://127.0.0.1:8000/uploads/images/finalsheets/' + fiche.image1 }} />
+                <View style={styles.container}>
+                    <Image style={styles.img} source={{ uri: 'http://127.0.0.1:8000/uploads/images/finalsheets/' + fiche.image2 }} />
+                    <Image style={styles.img} source={{ uri: 'http://127.0.0.1:8000/uploads/images/finalsheets/' + fiche.image3 }} />
+                    <Image style={styles.img} source={{ uri: 'http://127.0.0.1:8000/uploads/images/finalsheets/' + fiche.image4 }}  />  
+                </View>
+            </View>
+        </View>
     );
 }
 const styles = StyleSheet.create({
-    container:{
-        backgroundColor:'#ededed',
-
-    },
-
-    titleContainer: {
-        flex: 1,
-        flexDirection:'row',
-        justifyContent:'center',
-    },
     title: { 
-        fontSize:40,
+        fontSize:30,
         color:'#49AC72',
         fontWeight:"500",
+        textAlign: 'center',
+        backgroundColor: '#f0efeb',
+        paddingTop: 20,
+        paddingBottom: 20,
+
+    },
+    text:{
+        flexDirection: "row",
+    },
+    icon:{
+        width: 80,
+        height: 80,
+        marginLeft: 20,
+        marginTop: 30,
+    },
+    subtitle: { 
+        fontSize:15,
+        color:'#ffff',
+        fontWeight:"400",
+        textAlign: 'left',
+        marginTop: 30,
+        marginLeft: 20,
+    },
+    container1:{
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        marginTop: 20,
+        marginLeft: 30,
+        marginRight: 30,
         
     },
+    img1:{
+        width: 200,
+        height: 400,
+        borderRadius: 10,
+    },
+    container:{
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        justifyContent: 'space-between',
+        
+    },
+    img:{
+        width: 100,
+        height: 110,
+        borderRadius: 10,
+    }
 });

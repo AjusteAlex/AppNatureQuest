@@ -5,7 +5,8 @@ export default function ButtonMenu ({ onPress }) {
     return (
             <TouchableOpacity onPress={onPress}>
                 <View style={styles.button}>
-                    <Text style={styles.buttonText}>Menu
+                    <Text style={styles.buttonText}>
+                        Menu
                     </Text>
                 </View>     
             </TouchableOpacity>

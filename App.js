@@ -34,7 +34,7 @@ const Drawer = createDrawerNavigator()
 
 export default function App() {
   return (  
-    <NavigationContainer theme={MenuTheme}>
+    <NavigationContainer theme={MenuTheme} style={styles.nav}>
       <Drawer.Navigator initialRouteName="Home" drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="NatureQuest" component={NatureQuestGps} />
@@ -48,5 +48,7 @@ export default function App() {
 const styles = StyleSheet.create({
   menuCloseButton: {
     color:'red',
-  }
+  },
+
+  
 });
