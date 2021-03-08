@@ -28,10 +28,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.58,
         shadowRadius: 16.00,
-
         elevation: 24,
-        
-
     },
 
     buttonText: {

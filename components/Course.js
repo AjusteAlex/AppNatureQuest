@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, Button, ImagePropTypes } from 'react-native';
 import axios from 'axios';
 import CourseButton from './CourseButton';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 
@@ -26,30 +27,35 @@ export default function Course(props) {
 
 
     return (
-    
-        <View style={styles.container}>
-            <View style={styles.page}>
+        <LinearGradient
+            // Background Linear Gradient
+            colors={['#A3D05A','#49AC72']}
+            style={styles.background}>
 
-            {course.buttonPlants.map(function(buttonPlantsData) {
-                return <CourseButton  text={buttonPlantsData.content} onPress={function(){
-                    console.log(buttonPlantsData);
-                if (buttonPlantsData.nextStepId){
-                    props.setIdFiche(undefined)
-                    props.setId(buttonPlantsData.nextStepId.id)
-                }else{
-                    props.setId(undefined)
-                    props.setIdFiche(buttonPlantsData.finalSheet.id)
-                }
-                }}/>
-                
-            })} 
+            <View style={styles.container}>
+                <View style={styles.page}>
 
-            {course.buttonPlants.map(function(buttonPlantsData) {
-                return <Text>{buttonPlantsData.img}</Text>
-            })}
+                {course.buttonPlants.map(function(buttonPlantsData) {
+                    return <CourseButton  text={buttonPlantsData.content} onPress={function(){
+                        console.log(buttonPlantsData);
+                    if (buttonPlantsData.nextStepId){
+                        props.setIdFiche(undefined)
+                        props.setId(buttonPlantsData.nextStepId.id)
+                    }else{
+                        props.setId(undefined)
+                        props.setIdFiche(buttonPlantsData.finalSheet.id)
+                    }
+                    }}/>
+                    
+                })} 
+
+                {course.buttonPlants.map(function(buttonPlantsData) {
+                    return <Text>{buttonPlantsData.img}</Text>
+                })}
+                </View>
+
             </View>
-
-          </View>
+          </LinearGradient>
     );
 }
 
@@ -69,5 +75,13 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       
     },
+    background:{
+        flex:1,
+      alignItems:'center',
+      left: 0,
+      right: 0,
+      top: 0,
+      height:'100%',
+    }
   
   });

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import { Image } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 import axios from 'axios';
@@ -26,6 +27,11 @@ export default function Fiche(props) {
     return (
         <View style={{flex: 1}}>
             <Text style={styles.title}>{fiche.title}</Text>
+            <LinearGradient
+            // Background Linear Gradient
+            colors={['#A3D05A','#49AC72']}
+            style={styles.background}>
+
             <View style={styles.text}>
                 <Image style = {styles.icon} source={require('../assets/info.png')} />
                 <Text style={styles.subtitle}>{fiche.subtitle}</Text>
@@ -38,6 +44,8 @@ export default function Fiche(props) {
                     <Image style={styles.img} source={{ uri: 'http://127.0.0.1:8000/uploads/images/finalsheets/' + fiche.image4 }}  />  
                 </View>
             </View>
+
+            </LinearGradient>
         </View>
     );
 }
@@ -81,6 +89,7 @@ const styles = StyleSheet.create({
         width: 200,
         height: 400,
         borderRadius: 10,
+        marginRight: 10,
     },
     container:{
         flexDirection: 'column',
@@ -92,5 +101,13 @@ const styles = StyleSheet.create({
         width: 100,
         height: 110,
         borderRadius: 10,
+    },
+    background:{
+      flex:1,
+      alignItems:'center',
+      left: 0,
+      right: 0,
+      top: 0,
+      height:'100%',
     }
 });
